@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,8 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #Created Apps
     'account.apps.AccountConfig',
-    'dashboard.apps.DashboardConfig',
+    'django_userforeignkey',
+    "bootstrap_datepicker_plus", 
+    'bootstrap4',
+    
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -50,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_userforeignkey.middleware.UserForeignKeyMiddleware',
 ]
 
 ROOT_URLCONF = 'tasktracker.urls'
@@ -57,7 +63,7 @@ ROOT_URLCONF = 'tasktracker.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/ 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,9 +124,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR/ 'static'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR/ 'tasktracker/static']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#Import messages, create custom styling
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+     messages.ERROR: 'danger'
+}
