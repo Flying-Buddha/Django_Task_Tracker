@@ -14,8 +14,6 @@
   <p align="center">
     Django application that serves as a development task-tracking portal. 
     <br />
-    <a href="https://github.com/Flying-Buddha/Django_Task_Tracker">View Demo</a>
-    ·
     <a href="https://github.com/Flying-Buddha/Django_Task_Tracker/issues">Report Bug</a>
     ·
     <a href="https://github.com/Flying-Buddha/Django_Task_Tracker/issues">Request Feature</a>
